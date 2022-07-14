@@ -7,7 +7,7 @@
 	' Begin DataPadColumnSetup
 	Column = 1
 	FunctionType = "Time"
-	Channel = 7
+	Channel = ##Heart Rate Channel##
 	RecordMode = 1
 	Options = ""
 	Call Doc.DataPadColumnSetup (Column, FunctionType, Channel, RecordMode, Options)
@@ -16,7 +16,7 @@
 	' Begin DataPadColumnSetup
 	Column = 2
 	FunctionType = "Selection Start"
-	Channel = 7
+	Channel = ##Heart Rate Channel##
 	RecordMode = 1
 	Options = ""
 	Call Doc.DataPadColumnSetup (Column, FunctionType, Channel, RecordMode, Options)
@@ -25,7 +25,7 @@
 	' Begin DataPadColumnSetup
 	Column = 3
 	FunctionType = "Selection End"
-	Channel = 7
+	Channel = ##Heart Rate Channel##
 	RecordMode = 1
 	Options = ""
 	Call Doc.DataPadColumnSetup (Column, FunctionType, Channel, RecordMode, Options)
@@ -34,7 +34,7 @@
 	' Begin DataPadColumnSetup
 	Column = 4
 	FunctionType = "Selection Duration"
-	Channel = 7
+	Channel = ##Heart Rate Channel##
 	RecordMode = 1
 	Options = ""
 	Call Doc.DataPadColumnSetup (Column, FunctionType, Channel, RecordMode, Options)
@@ -43,16 +43,18 @@
 	' Begin DataPadColumnSetup
 	Column = 5
 	FunctionType = "Full Comment Text"
-	Channel = 7
+	Channel = ##Heart Rate Channel##
 	RecordMode = 1
 	Options = ""
 	Call Doc.DataPadColumnSetup (Column, FunctionType, Channel, RecordMode, Options)
 	' End DataPadColumnSetup
 	
+## Turn Remaining Channels off ##
+
 	' Begin DataPadColumnSetup
 	Column = 6
 	FunctionType = "{00000000-0000-0000-0000-000000000000}-0"
-	Channel = 7
+	Channel = ##Heart Rate Channel##
 	RecordMode = 1
 	Options = ""
 	Call Doc.DataPadColumnSetup (Column, FunctionType, Channel, RecordMode, Options)
@@ -61,7 +63,7 @@
 	' Begin DataPadColumnSetup
 	Column = 7
 	FunctionType = "{00000000-0000-0000-0000-000000000000}-0"
-	Channel = 7
+	Channel = ##Heart Rate Channel##
 	RecordMode = 1
 	Options = ""
 	Call Doc.DataPadColumnSetup (Column, FunctionType, Channel, RecordMode, Options)
@@ -70,7 +72,7 @@
 	' Begin DataPadColumnSetup
 	Column = 8
 	FunctionType = "{00000000-0000-0000-0000-000000000000}-0"
-	Channel = 7
+	Channel = ##Heart Rate Channel##
 	RecordMode = 1
 	Options = ""
 	Call Doc.DataPadColumnSetup (Column, FunctionType, Channel, RecordMode, Options)
@@ -124,6 +126,7 @@
 	Call Doc.OpenCloseWindow ("Data Pad", 1, False)
 	Call Doc.SetViewState ("Data Pad", 1, 61728)
 		
+## Set cursor to beginning of data ##
 
 	' Begin SetSelection
 	Set selobj = CreateObject("ADIChart.Selection")
@@ -155,6 +158,8 @@
 	
 	Call Doc.SetViewState ("Chart View", 1, 61488)
 
+## Find comment or point in data file for data to being ##
+
 	' Begin Find
 	ChannelIndex = ##Heart Rate Channel##
 	SetAction = kSetActivePoint
@@ -168,6 +173,8 @@
 	Call Doc.Find (ChannelIndex, SetAction, SelectMode, SelectTime, DataDisplayMode, SelectAll, Direction, FindType, FindData)
 	' End Find
 	
+## Final local maximum for R spike of QRS interval ##	
+
 	' Begin Find
 	ChannelIndex = 7
 	SetAction = kSetActivePoint
@@ -180,7 +187,9 @@
 	FindData = "NoiseThreshold=0.05;"
 	Call Doc.Find (ChannelIndex, SetAction, SelectMode, SelectTime, DataDisplayMode, SelectAll, Direction, FindType, FindData)
 	' End Find
-	
+
+## Set number of repitions for macro ##
+
 	For i = 1 to ##Number for amount of times for macro to repeat##
 		
 		
