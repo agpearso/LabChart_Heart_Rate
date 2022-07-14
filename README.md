@@ -1,7 +1,10 @@
-# LabChart_Heart_Rate Macro #
+
+## Must include initial Sub text in macro as shown below ##
 
 	Sub Heart_Rate ()
 	
+## Data Pad set up ##
+
 	Call Doc.OpenView ("Data Pad")
 	
 	' Begin DataPadColumnSetup
