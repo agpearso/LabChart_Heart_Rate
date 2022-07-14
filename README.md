@@ -1,8 +1,8 @@
-# LabChart_Heart_Rate
+# LabChart_Heart_Rate Macro #
 
-Sub Heart_Rate ()
+Macro name = Sub Heart_Rate ()
 
-Call Doc.OpenView ("Data Pad")
+	Call Doc.OpenView ("Data Pad")
 	
 	' Begin DataPadColumnSetup
 	Column = 1
