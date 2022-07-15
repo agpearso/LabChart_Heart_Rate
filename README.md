@@ -145,23 +145,10 @@
 	Call selobj.SetChannelRange (8, 1, -1)
 	Doc.SelectionObject = selobj
 	' End SetSelection
-	
-	' class SimpleTypeMessage<class TypeIdClass<&struct _GUID const ADICOMObj_GUID,5>,unsigned long>
-	Call Doc.PlayMessage ("0x0400000001000000FFFFFFFF01000000FFFFFFFF501B0000AAAA1555010000000500FF7F904BA734BC0DD311B870008048C36FE8000000000100FF7F37F567CC2AD3C44081B60BA26908ABED000000000100000008000000")
-	' Begin PositionWindow
-	ViewTypeId = "Chart View"
-	ViewInstance = 1
-	Dim Position(3)
-	Position(0) = -105
-	Position(1) = 14
-	Position(2) = 1939
-	Position(3) = 1005
-	Call Doc.PositionWindow (ViewTypeId, ViewInstance, Position)
-	' End PositionWindow
-	
-	Call Doc.SetViewState ("Chart View", 1, 61488)
 
-## Find comment or point in data file for data to being ##
+        Call Doc.SetViewState ("Chart View", 1, 61488)
+
+## Find comment or point in data file for data to begin ##
 
 	' Begin Find
 	ChannelIndex = ##Heart Rate Channel##
@@ -179,7 +166,7 @@
 ## Final local maximum for R spike of QRS interval ##	
 
 	' Begin Find
-	ChannelIndex = 7
+	ChannelIndex = ##Heart Rate Channel##
 	SetAction = kSetActivePoint
 	SelectMode = kSelectAround
 	SelectTime = 1
