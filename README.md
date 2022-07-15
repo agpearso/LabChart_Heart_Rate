@@ -1,9 +1,9 @@
 
-## Must include initial Sub text in macro as shown below ##
+## Must include initial sub text in macro as shown below ##
 
 	Sub Heart_Rate ()
 	
-## Data Pad set up ##
+## Data pad set up ##
 
 	Call Doc.OpenView ("Data Pad")
 	
